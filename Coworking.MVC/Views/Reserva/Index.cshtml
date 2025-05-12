@@ -1,0 +1,30 @@
+﻿@model List<ReservaViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Listagem de Reservas";
+}
+<h2>Listagem de Reservas</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Usuário</th>
+            <th>Sala</th>
+            <th>Data</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Usuario.Nome</td>
+                <td>@item.Sala.Nome</td>
+                <td>@item.DataHoraReserva.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Cancelar" asp-route-id="@item.Sala.Id" class="btn btn-danger">Cancelar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

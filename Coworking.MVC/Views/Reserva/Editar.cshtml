@@ -1,0 +1,23 @@
+﻿@model ReservaViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Editar Reserva";
+}
+<h2>Editar Reserva</h2>
+<form asp-action="Editar" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="form-group">
+        <label>Usuário</label>
+        <input class="form-control" value="@Model.Usuario.Nome" disabled />
+        <input type="hidden" name="UsuarioId" value="@Model.UsuarioId" />
+    </div>
+    <div class="form-group">
+        <label>Sala</label>
+        <select name="SalaId" class="form-control" asp-items="@(new SelectList(ViewBag.Salas, "Id", "Nome", Model.SalaId))"></select>
+    </div>
+    <div class="form-group">
+        <label>Data e Hora</label>
+        <input name="DataHoraReserva" type="datetime-local" class="form-control" value="@Model.DataHoraReserva.ToString("yyyy-MM-ddTHH:mm")" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+</form>

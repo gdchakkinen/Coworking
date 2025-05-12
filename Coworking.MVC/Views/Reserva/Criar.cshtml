@@ -1,0 +1,21 @@
+﻿@model CriarReservaViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Criar Reserva";
+}
+<h2>Criar Reserva</h2>
+<form asp-action="Criar" method="post">
+    <div class="form-group">
+        <label>Usuário</label>
+        <select asp-for="UsuarioId" class="form-control" asp-items="@(new SelectList(ViewBag.Usuarios, "Id", "Nome"))"></select>
+    </div>
+    <div class="form-group">
+        <label>Sala</label>
+        <select asp-for="SalaId" class="form-control" asp-items="@(new SelectList(ViewBag.Salas, "Id", "Nome"))"></select>
+    </div>
+    <div class="form-group">
+        <label>Data e Hora</label>
+        <input asp-for="DataHoraReserva" type="datetime-local" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+</form>
