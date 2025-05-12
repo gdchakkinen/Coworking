@@ -9,7 +9,6 @@ Este é um sistema de gerenciamento de reservas para um espaço de coworking, de
 - Entity Framework Core
 - xUnit (testes unitários)
 - Moq (mocks em testes)
-- AutoMapper
 - Repository + Unit of Work
 - Clean Architecture
 - Validações com DataAnnotations + custom validations
